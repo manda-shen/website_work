@@ -26,7 +26,7 @@
             /* 為 Safari 提供支持 */
             color: white;
             /* 確保文字可見 */
-            border-bottom: 1px solid rgba(162, 208, 214, 0.7);
+            border-bottom: 1px solid rgba(137, 175, 180, 0.7);
             /* 添加分隔線 */
             transition: all 0.3s ease;
             /* 添加過渡效果 */
@@ -43,7 +43,7 @@
             /* 水平居中修正 */
             width: 150px;
             height: 135px;
-            background-color: rgba(177, 166, 136, 1);
+            background-color: rgba(162, 208, 214, 1);
             z-index: 100;
             /* 提高 z-index，確保在 navbar 上方 */
             padding: 20px;
@@ -60,7 +60,7 @@
         .navbar.shrink {
             min-height: 6vh;
             /* 縮小後的高度 */
-            background: rgba(181, 229, 233, 0.9);
+            background: rgba(181, 229, 233, 0.8);
             /* 增加背景不透明度 */
         }
 
@@ -88,6 +88,7 @@
             /* 圖片高度填滿父容器 */
             object-fit: cover;
             /* 確保圖片比例不變，填滿容器 */
+            margin: auto !important;
         }
 
         .carousel-caption {
@@ -221,8 +222,8 @@
 
                 if (scrollTop > 50) {
                     navbar.classList.add("shrink"); // 添加縮小類
-                    navLogo.style.transform = "translateX(-50%) scale(0.8)"; // 縮小 logo
-                    navLogo.style.top = "-15px"; // 調整縮小後的位置
+                    navLogo.style.transform = "translateX(-50%) scale(0.7)"; // 縮小 logo
+                    navLogo.style.top = "-25px"; // 調整縮小後的位置
                 } else {
                     navbar.classList.remove("shrink"); // 移除縮小類
                     navLogo.style.transform = "translateX(-50%) scale(1)"; // 恢復 logo 大小
@@ -253,6 +254,10 @@
     <div class="row">
         <img src="./img/bg5.jpg" alt="">
     </div>
+    <div class="row">
+        <img src="./img/farm-map.jpg" alt="">
+    </div>
+
 
 
 
