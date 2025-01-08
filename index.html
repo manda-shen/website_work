@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link css 順序 1.bs 2.self -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      
+
+.navbar {
+            position: fixed;
+            /* 使導航欄固定在頁面頂部 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 12vh;
+            z-index: 20;
+            /* 確保位於 Carousel 上層 */
+            background: rgba(181, 229, 233, 0.6);
+            backdrop-filter: blur(10px);
+            /* 毛玻璃效果 */
+            -webkit-backdrop-filter: blur(10px);
+            /* 為 Safari 提供支持 */
+            color: rgb(116, 138, 141) !important;
+            /* 確保文字可見 */
+            border-bottom: 1px solid rgba(137, 175, 180, 0.7);
+            /* 添加分隔線 */
+            transition: all 0.3s ease;
+            /* 添加過渡效果 */
+        }
+
+.text-hover .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+} 
+
+.text-hover .nav-item:hover .nav-link {
+    color: #ffffff;
+    text-shadow: 1px 1px 10px rgba(47, 112, 119, 0.7);
+} 
+
+        .nav-logo {
+            position: absolute;
+            /* 將 logo 設置為絕對定位 */
+            top: 0;
+            /* 與頁面頂部對齊 */
+            left: 50%;
+            /* 水平居中 */
+            transform: translateX(-50%);
+            /* 水平居中修正 */
+            width: 150px;
+            height: 135px;
+            background-color: rgba(162, 208, 214, 1);
+            z-index: 100;
+            /* 提高 z-index，確保在 navbar 上方 */
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            margin: auto;
+        }
+
+        .nav-logo img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .navbar.shrink {
+            min-height: 6vh;
+            /* 縮小後的高度 */
+            background: rgba(181, 229, 233, 0.8);
+            /* 增加背景不透明度 */
+        }
+
+        .navbar-brand {
+            transition: font-size 0.3s ease;
+        }
+
+        .navbar.shrink .navbar-brand {
+            font-size: 1.2rem;
+            /* 調整縮小後的字體大小 */
+        }
+        /**********lokiSlider***********/
+
+#lokiSlider {
+    background: #04091e !important;
+}
+#lokiSlider img {
+  object-fit: cover;
+  filter: grayscale(50%);
+  opacity: 0.70;
+  z-index: 1;
+}
+
+#lokiSlider .carousel-caption {
+  text-shadow: #333 0.2rem 0.2rem 0.5rem;
+}
+
+#lokiSlider .carousel-indicators > button {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  border: 10px solid transparent;
+}
+
+    /**********文字方塊***********/
+/* .carousel-caption {
+            max-width: 17%;
+            min-width: 200px;
+            max-height: 15%;
+            min-height: 150px;
+            background: rgba(181, 229, 233, 0.2);
+            backdrop-filter: blur(8px);
+            毛玻璃效果
+            -webkit-backdrop-filter: blur(10px);
+            為 Safari 提供支持
+            color: white;
+            確保文字可見
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            添加分隔線
+            position: absolute;
+            top: 50% !important;
+            文字位置距離底部 20%
+            left: 70%;
+            right: 0%;
+            overflow: hidden;
+            防止多餘內容顯示
+            transform: translateX(-50%);
+            z-index: 10;
+            確保文字顯示在圖片上方
+            color: #fff;
+            白色文字
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            添加文字陰影
+            opacity: 1;
+            預設完全可見
+            transition: opacity 1s ease, visibility 1s ease;
+            添加過渡效果
+        }
+
+        .carousel-caption h1{
+            font-size: 1.8em;
+        }
+
+        當文字隱藏時的狀態
+        .carousel-caption.hidden {
+            opacity: 0;
+            透明度設為 0
+        }  */
+
+
+        /**********lokiRoom************/
+#lokiRoom nav>.nav-link {
+  flex: 0 1 15%;
+  box-shadow: 1px -1px 5px 0px #ccc;
+  color: #664d03;
+  background-color: #fff3cd;
+  border: 0;
+}
+
+#lokiRoom nav>.nav-link.active {
+  background-color: #ffc107;
+  color: #fff3cd;
+}
+
+#lokiRoom nav.nav-tabs,
+#lokiRoom nav>.nav-link {
+  border-bottom: 1px solid #ffc107;
+}
+
+
+/************lokiFooter**********/
+footer>.position-fixed {
+  right: 5vh;
+  bottom: 5vh;
+  z-index: 999;
+}
+
+footer>.position-fixed>a {
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate(0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -30px);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate(0, -15px);
+  }
+
+  90% {
+    transform: translate(0, -4px);
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- js include 順序 1.bs 2.jq 3.self -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- nav -->
+        <div class="container-fluid sticky-top">
+            <div class="nav-logo">
+                <a class="navbar-brand" href="#">
+                    <img src="./img/theskyland_sw.png" alt="">
+                </a>
+            </div>
+            <nav class="navbar navbar-expand-sm navbar-dark text-hover">
+                <div class="container-fluid">
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#page1">Page1</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#page2">Page2</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        <section id="lokiSlider" class="carousel slide carousel-fade"  data-bs-ride="carousel" data-bs-interval="2500">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#lokiSlider" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#lokiSlider" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#lokiSlider" data-bs-slide-to="2"></button>
+              <button type="button" data-bs-target="#lokiSlider" data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item vh-100 active">
+                <img src="./img/01.jpg" class="b-block w-100 h-100">
+                <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+                  <h1>共耕 共饗 共好</h1>
+                  <p class="d-none d-md-block">Farming. Eating. Enjoying.</p>
+                </div>
+              </div>
+              <div class="carousel-item vh-100">
+                <img src="./img/05.webp" class="b-block w-100 h-100">
+                <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+                  <h1>共耕</h1>
+                  <p class="d-none d-md-block">體驗農耕樂趣</p>
+                </div>
+              </div>
+              <div class="carousel-item vh-100">
+                <img src="./img/06.webp" class="b-block w-100 h-100">
+                <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+                  <h1>共饗</h1>
+                  <p class="d-none d-md-block">享受現採有機耕作食材烹飪美食</p>
+                </div>
+              </div>
+              <div class="carousel-item vh-100">
+                <img src="./img/04_1.jpg" class="b-block w-100 h-100">
+                <div class="carousel-caption top-0 bottom-0 d-flex flex-column justify-content-center">
+                  <h1>共好</h1>
+                  <p class="d-none d-md-block">共享遠離都市的美好時光</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#lokiSlider" data-bs-slide="prev">
+              <i class="fas fa-angle-double-left fa-2x"></i>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#lokiSlider" data-bs-slide="next">
+              <i class="fas fa-angle-double-right fa-2x"></i>
+            </button>
+          </section>
+
+          <section id="lokiRoom" class="container py-5">
+            <header class="text-center">
+              <h2 class="text-warning pb-3">房型介紹</h2>
+              <nav class="nav nav-tabs flex-nowrap justify-content-around">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#roomA" type="button">行政本館</button>
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomB" type="button">雙幕川館</button>
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomC" type="button">繪圖湯屋</button>
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomPrice" type="button">價目表</button>
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#roomRule" type="button">訂房須知</button>
+              </nav>
+            </header>
+            <article class="tab-content py-5">
+              <div class="tab-pane fade show active" id="roomA">A Lorem ipsum dolor sit amet.</div>
+              <div class="tab-pane fade" id="roomB">B Lorem ipsum dolor sit amet.</div>
+              <div class="tab-pane fade" id="roomC">C Lorem ipsum dolor sit amet.</div>
+              <div class="tab-pane fade" id="roomPrice">P Lorem ipsum dolor sit amet.</div>
+              <div class="tab-pane fade" id="roomRule">R Lorem ipsum dolor sit amet.</div>
+            </article>
+          </section>
+
+
+          <footer class="bg-dark text-muted py-3 text-center">
+            <small>
+              泰山職業訓練中心課程教材編譯 <br>copyright &copy; <span class="text-warning">洛奇數位設計</span>. all rights reserved
+            </small>
+            <div id="lokiArrow" class="position-fixed">
+              <a class="btn btn-warning text-light" href="#lokiSlider"><i class="fas fa-angle-double-up fa-2x"></i></a>
+            </div>
+          </footer>
+          
+          <script>
+            // 在頁面滾動時，檢測滾動位置並調整 navbar 高度。
+            document.addEventListener("DOMContentLoaded", () => {
+                const navbar = document.querySelector(".navbar");
+                const navLogo = document.querySelector(".nav-logo");
+                let lastScrollTop = 0;
+    
+                window.addEventListener("scroll", () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    
+                    if (scrollTop > 50) {
+                        navbar.classList.add("shrink"); // 添加縮小類
+                        navLogo.style.transform = "translateX(-50%) scale(0.7)"; // 縮小 logo
+                        navLogo.style.top = "-25px"; // 調整縮小後的位置
+                    } else {
+                        navbar.classList.remove("shrink"); // 移除縮小類
+                        navLogo.style.transform = "translateX(-50%) scale(1)"; // 恢復 logo 大小
+                        navLogo.style.top = "0"; // 恢復初始位置
+                    }
+    
+                    lastScrollTop = scrollTop;
+                });
+            });
+    
+        </script>
+
+
+
+<section class="hero-area">
+    <div class="hero-slides owl-carousel">
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(img/hotel-room_01.webp);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-end">
+                    <div class="col-12">
+                        <div class="hero-slides-content">
+                            <div class="line"></div>
+                            <h2>Sand Storm</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(img/hotel-room_02.webp);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-end">
+                    <div class="col-12">
+                        <div class="hero-slides-content">
+                            <div class="line"></div>
+                            <h2>New York View</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(img/hotel-room_03.webp);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-end">
+                    <div class="col-12">
+                        <div class="hero-slides-content">
+                            <div class="line"></div>
+                            <h2>The Desert</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url(img/hotel-room_04.webp);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-end">
+                    <div class="col-12">
+                        <div class="hero-slides-content">
+                            <div class="line"></div>
+                            <h2>Mountains Hike</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Hero Area End ***** -->
+     <script src="./active.js"></script>
+          
+</body>
+
+</html>
